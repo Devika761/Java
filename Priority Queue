@@ -1,0 +1,40 @@
+package com.collection;
+
+import java.util.*;
+public class Demo_PriortyQue {
+
+	public static void main(String[] args) {
+		//intialising the prority queue
+		PriorityQueue<Integer> pq=new PriorityQueue<Integer>();
+		pq.add(3);
+		pq.add(4);
+		pq.add(5);
+		pq.add(6);
+		pq.add(7);
+		//printing the elements in the queue
+		System.out.println(pq);
+		
+		System.out.println("peek value of PriorityQueue:"+pq.peek());
+		
+		
+		//using iteration for arranging data
+		System.out.println("iterations");
+		 Iterator<Integer> itr=pq.iterator();
+	     while(itr.hasNext()) {
+	    	 System.out.println(itr.next());
+	    
+	     }
+	     //deleting the element from queue
+	     System.out.println ("deleted element:"+pq.remove());
+
+	     
+	     pq.clear();
+	   
+	     System.out.println(pq);
+	     System.out.println(pq.poll());
+	     System.out.println(pq.size());
+	     
+	 
+	}
+
+}
