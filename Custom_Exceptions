@@ -1,0 +1,69 @@
+package com.collection;
+
+public class Demo_CustomExceptions {
+
+	private int balance;
+	private int accountNo;
+
+	public Demo_CustomExceptions(int accountNo, int balance) {
+		this.balance = balance;
+	}
+
+	// Method to deposit amount into the account
+	public void deposit(int amt) {
+		balance += amt;
+		System.out.println(amt + " deposited successfully.");
+	}
+
+	// Method to withdraw amount from the account
+	public void withDraw(int amt) throws InsufficientBalanceException {
+		if (balance >= amt) {
+			balance -= amt;
+			System.out.println(amt + " withdrawn successfully.");
+		} else {
+			throw new InsufficientBalanceException("Insufficient balance" + "\nNew Blanace:" + amt);
+		}
+	}
+
+	public static void main(String[] args) {
+		// Creating an instance of BankingApp
+		Demo_CustomExceptions account = new Demo_CustomExceptions(123456, 10000);
+
+		// Depositing and withdrawing amounts
+		account.deposit(1000);// 5000
+		try {
+			account.withDraw(200);
+			account.withDraw(200);
+
+			account.withDraw(200);
+
+			// This will throw InsufficientBalanceException
+			account.withDraw(15000);
+		}
+
+		catch (InsufficientBalanceException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+}
+
+
+
+package com.collection;
+
+public class InsufficientBalanceException extends Exception {
+
+	
+
+ String msg;
+  
+ public InsufficientBalanceException(String msg) {
+	 super(msg);
+	 this.msg=msg;
+ }
+
+
+		
+	}
+
+
